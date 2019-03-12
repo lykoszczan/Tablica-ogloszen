@@ -4,11 +4,16 @@
     ViewBag.Title = "Tablica ogłoszeń - aplikacja do dodawania ogłoszeń";
     ViewBag.Opis = "Lista ogłoszeń aplikacji";
     ViewBag.SlowaKluczowe = "Lista, ogłoszeń, słowa, kluczowe, aplikacja";
-     
+
 }
 
 <h2>Lista ogłoszeń</h2>
-
+@if (ViewBag.isDeleted == true)
+{
+    <div class="alert alert-success" role="alert">
+        Pomyślnie usunięto ogłoszenie<br />
+    </div>
+}
 <p>
     @Html.ActionLink("Dodaj nowe ogłoszenie", "Create", null, new { @class = "btn btn-primary" })
 </p>
@@ -29,29 +34,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.UzytkownikId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tresc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tytul)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataDodania)
-        </td>
-        <td>
-            @Html.ActionLink("Szczegóły", "Details", new { id = item.Id }, new { @class = "btn btn-warning" })
-            <br />
-            @Html.ActionLink("Edytuj", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) 
-            <br />
-            @Html.ActionLink("Usuń", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
-            <br />
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UzytkownikId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tresc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tytul)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDodania)
+            </td>
+            <td>
+                @Html.ActionLink("Szczegóły", "Details", new { id = item.Id }, new { @class = "btn btn-warning" })
+                <br />
+                @Html.ActionLink("Edytuj", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+                <br />
+                @Html.ActionLink("Usuń", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                <br />
+            </td>
+        </tr>
+    }
 
 </table>
