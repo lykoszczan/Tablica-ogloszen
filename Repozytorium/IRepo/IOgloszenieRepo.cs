@@ -1,6 +1,7 @@
 ﻿using Repozytorium.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,5 +15,6 @@ namespace Repozytorium.IRepo
         void UsunOgloszenie(int id);
         void SaveChanges();
         void Dodaj(Ogloszenie ogloszenie);
+        void Aktualizuj(Ogloszenie ogloszenie);
     }
 }

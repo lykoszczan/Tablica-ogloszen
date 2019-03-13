@@ -2,6 +2,7 @@
 using Repozytorium.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
@@ -23,7 +24,7 @@ namespace Repozytorium.Repo
         public IQueryable<Ogloszenie> PobierzOgloszenia()
         {
             _db.Database.Log = message => Trace.WriteLine(message);
-            var ogloszenie = _db.Ogloszenia.AsNoTracking();
+            var ogloszenie = _db.Ogloszenia.AsNoTracking().OrderByDescending(x => x.DataDodania);            
             return ogloszenie;
         }
 
@@ -57,6 +58,11 @@ namespace Repozytorium.Repo
         public void Dodaj(Ogloszenie ogloszenie)
         {
             _db.Ogloszenia.Add(ogloszenie);
+        }
+
+        public void Aktualizuj(Ogloszenie ogloszenie)
+        {
+            _db.Entry(ogloszenie).State = EntityState.Modified;
         }
     }
 }

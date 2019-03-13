@@ -58,7 +58,7 @@ namespace Repozytorium.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Pamiętaj mnie")]
         public bool RememberMe { get; set; }
     }
 
@@ -76,8 +76,8 @@ namespace Repozytorium.Models
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Powtórz hasło")]
+        [Compare("Password", ErrorMessage = "Hasła nie są takie same.")]
         public string ConfirmPassword { get; set; }
     }
 

@@ -5,8 +5,8 @@
     {
         @Html.AntiForgeryToken()
         <ul class="nav navbar-nav navbar-right">
-            <li class="nav-item">@Html.ActionLink("Zarządzaj kontem", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
-            <li class="nav-item"><a href="javascript:document.getElementById('logoutForm').submit()">Wyloguj</a></li>
+            <li class="nav-item">@Html.ActionLink("Zarządzaj kontem", "Index", "Manage", routeValues: null, htmlAttributes: new { @class = "nav-link",title = "Manage" })</li>
+            <li class="nav-item"><a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">Wyloguj</a></li>
         </ul>
     }
 }
