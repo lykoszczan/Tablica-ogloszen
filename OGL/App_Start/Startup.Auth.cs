@@ -58,11 +58,12 @@ namespace Repozytorium
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "726229647150-su3scr0e12momupiqbgggq7ju34t3tsd.apps.googleusercontent.com",
+                ClientSecret = "z1w2uYHW-s3ZlGG5CGjDVdje"
+            });
+
         }
     }
 }
